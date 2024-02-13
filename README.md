@@ -16,6 +16,7 @@ aws cloudformation create-stack --stack-name test-devsecops-eks --template-body 
 
 aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-repo --template-body file://cloudformation/codecommit-ecr.yml
 
-4. Add secrets to your GitHub Repository
-5. Create or clone a sample application 
+4. Create or clone a sample application
+
+5. Add secrets to your GitHub Repository 
 6. Test the deployment

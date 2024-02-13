@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-devsecops
+  labels:
+    app: test-devsecops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-devsecops
+  template:
+    metadata:
+      labels:
+        app: test-devsecops
+    spec:
+      containers:
+        - name: test-devsecops
+          image: ${{ secrets.AWS_ECR_URL}}/test-devsecops:1.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
