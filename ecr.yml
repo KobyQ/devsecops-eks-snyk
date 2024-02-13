@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: 'Amazon ECR Repo'
+
+Parameters:
+  RepoName:
+    Type: String
+    Default: test-devsecops-repo
+
+Resources:
+  ECRRepository:
+    Type: "AWS::ECR::Repository"
+    Properties:
+      RepositoryName: !Ref RepoName
+      ImageScanningConfiguration: 
+        ScanOnPush: true  # Enable vulnerability scanning on image push
