@@ -18,5 +18,8 @@ aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-r
 
 4. Create or clone a sample application
 
-5. Add secrets to your GitHub Repository 
-6. Test the deployment
+5. Add GitHub Workflow Files
+
+6. Create IAM User, and Add secrets to GitHub Repository 
+
+7. Test the deployment
