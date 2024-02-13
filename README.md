@@ -9,6 +9,9 @@ To reduce operations overhead, explore aggregating and managing vulnerability fi
 aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-vpc --template-body file://vpc.yml
 
 2. Create the EKS cluster
+
+aws cloudformation create-stack --stack-name test-devsecops-eks --template-body file://eks.yml --capabilities CAPABILITY_NAMED_IAM
+
 3. Create the ECR Repository
 4. Add secrets to your GitHub Repository
 5. Create or clone a sample application 
