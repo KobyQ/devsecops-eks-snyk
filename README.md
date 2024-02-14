@@ -6,15 +6,15 @@ To reduce operations overhead, explore aggregating and managing vulnerability fi
 
 1. Create the EKS Network
 
-aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-vpc --template-body file://vpc.yml
+aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-vpc --template-body file://infra/vpc.yml
 
 2. Create the EKS cluster
 
-aws cloudformation create-stack --stack-name test-devsecops-eks --template-body file://eks.yml --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation create-stack --stack-name test-devsecops-eks --template-body file://infra/eks.yml --capabilities CAPABILITY_NAMED_IAM
 
 3. Create the ECR Repository
 
-aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-repo --template-body file://cloudformation/codecommit-ecr.yml
+aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-repo --template-body file://infra/ecr.yml
 
 4. Create or clone a sample application
 
@@ -22,4 +22,9 @@ aws cloudformation create-stack --region eu-west-1 --stack-name test-devsecops-r
 
 6. Create IAM User, and Add secrets to GitHub Repository 
 
-7. Test the deployment
+gh secret set AWS_ACCESS_KEY_ID --body "AWS_ACCESS_KEY_ID"
+gh secret set AWS_SECRET_ACCESS_KEY --body "AWS_SECRET_ACCESS_KEY"
+
+7. Add kubectl deployment file
+
+8. Test the deployment
