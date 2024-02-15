@@ -27,4 +27,6 @@ gh secret set AWS_SECRET_ACCESS_KEY --body "AWS_SECRET_ACCESS_KEY"
 
 7. Add kubectl deployment file
 
-8. Test the deployment
+8. Configure GitHub environments and approvals
+
+9. Test the deployment

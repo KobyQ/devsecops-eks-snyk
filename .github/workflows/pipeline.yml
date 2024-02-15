@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -41,7 +41,23 @@ jobs:
 
     - name: Update kube config
       run: aws eks update-kubeconfig --name test-devsecops
-    
+  
+  security-approval:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    environment:
+      name: production
+      url: 'https://app.snyk.io/org/kobyq/projects'
+    steps:
+      - name: 'Approved'
+        shell: bash
+        run: echo "Deployment was approved by security"
+
+  deploy:
+    needs: security-approval
+    runs-on: ubuntu-latest
+    steps:
     - name: Deploy to EKS
       run: |
         cd kube
