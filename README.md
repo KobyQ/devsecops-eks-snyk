@@ -30,3 +30,7 @@ gh secret set AWS_SECRET_ACCESS_KEY --body "AWS_SECRET_ACCESS_KEY"
 8. Configure GitHub environments and approvals
 
 9. Test the deployment
+
+## Clean Up
+
+aws cloudformation delete-stack --stack-name test-devsecops-vpc
